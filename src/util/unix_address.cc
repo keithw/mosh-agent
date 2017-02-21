@@ -50,6 +50,6 @@ UnixAddress::UnixAddress( const string & pathname )
 string UnixAddress::pathname() const
 {
   const size_t pathname_len = strnlen( addr_.as_sockaddr_un.sun_path,
-				       size_ - offsetof( sockaddr_un, sun_path ) );
+                                       size_ - offsetof( sockaddr_un, sun_path ) );
   return { addr_.as_sockaddr_un.sun_path, pathname_len };
 }

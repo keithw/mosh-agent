@@ -35,7 +35,7 @@ Socket<AddressType, domain, type>::Socket( FileDescriptor && fd )
 /* get the local or peer address the socket is connected to */
 template <class AddressType, int domain, int type>
 AddressType Socket<AddressType, domain, type>::get_address( const std::string & name_of_function,
-                                 const std::function<int(int, sockaddr *, socklen_t *)> & function ) const
+                                                            const std::function<int(int, sockaddr *, socklen_t *)> & function ) const
 {
   typename AddressType::raw address;
   socklen_t size = sizeof( address );

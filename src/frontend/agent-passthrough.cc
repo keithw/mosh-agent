@@ -14,6 +14,8 @@ int main()
 
     s.bind( UnixAddress( "/tmp/hello.socket" ) );
 
+    s.close();
+
     return EXIT_SUCCESS;
   } catch ( const exception & e ) {
     print_exception( e );

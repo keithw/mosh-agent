@@ -50,7 +50,9 @@ FileDescriptor::~FileDescriptor()
   }
 
   try {
+    std::cerr << "Closing file descriptor on abnormal shutdown... ";
     close();
+    std::cerr << "done.\n";
   } catch ( const exception & e ) { /* don't throw from destructor */
     print_exception( e );
   }
