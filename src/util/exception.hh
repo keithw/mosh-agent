@@ -38,9 +38,9 @@ public:
 
 inline void print_exception( const std::exception & e, std::ostream & output = std::cerr )
 {
-  output << "Died on exception: "
+  output << "Died on an exception of type \""
          << abi::__cxa_demangle( typeid( e ).name(), nullptr, nullptr, nullptr )
-         << ": " << e.what() << std::endl;
+         << "\".\n" << e.what() << "\n";
 }
 
 /* error-checking wrapper for most syscalls */

@@ -63,18 +63,18 @@ AddressType Socket<AddressType, domain, type>::peer_address() const
 template <class AddressType, int domain, int type>
 void Socket<AddressType, domain, type>::bind( const AddressType & address )
 {
-  SystemCall( "bind", ::bind( fd_num(),
-                              &address.to_sockaddr(),
-                              address.size() ) );
+  SystemCall( "bind " + address.str(), ::bind( fd_num(),
+                                               &address.to_sockaddr(),
+                                               address.size() ) );
 }
 
 /* connect socket to a specified peer address */
 template <class AddressType, int domain, int type>
 void Socket<AddressType, domain, type>::connect( const AddressType & address )
 {
-  SystemCall( "connect", ::connect( fd_num(),
-                                    &address.to_sockaddr(),
-                                    address.size() ) );
+  SystemCall( "connect " + address.str(), ::connect( fd_num(),
+                                                     &address.to_sockaddr(),
+                                                     address.size() ) );
 }
 
 /* mark the socket as listening for incoming connections */

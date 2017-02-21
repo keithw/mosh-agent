@@ -24,7 +24,7 @@ public:
 
   /* accessors */
   std::string pathname() const;
+  std::string str() const { return pathname(); }
   socklen_t size( void ) const { return size_; }
   const sockaddr & to_sockaddr( void ) const { return addr_.as_sockaddr; }
-
 };

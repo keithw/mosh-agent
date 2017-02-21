@@ -3,10 +3,20 @@
 #include <cstdlib>
 
 #include "unix_stream_socket.hh"
+#include "exception.hh"
+
+using namespace std;
 
 int main()
 {
-  UnixStreamSocket s;
+  try{
+    UnixStreamSocket s;
 
-  return EXIT_SUCCESS;
+    s.bind( UnixAddress( "/tmp/hello.socket" ) );
+
+    return EXIT_SUCCESS;
+  } catch ( const exception & e ) {
+    print_exception( e );
+    return EXIT_FAILURE;
+  }
 }
